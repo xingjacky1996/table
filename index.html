@@ -9,7 +9,7 @@
     <title>Document</title>
 </head>
     <style>
-
+            
     </style>
 <body>
     <table class="table table-striped table-bordered">
@@ -134,10 +134,13 @@
             <td><button>删除</button></td>
         </tr>
     </table>
+    <div class="add" style="width:40px; height: 30px; background: gray; color:#fff; line-height: 30px; text-align:center; margin-left:1150px;cursor: pointer;">添加</div>
     <script>
         let td=document.querySelectorAll("td")
         let button=document.querySelectorAll("button")
-        console.log(td);
+        let add=document.querySelector(".add")
+        let tbody=document.querySelector("tbody");
+        console.log(tbody);
         
         td.forEach((item,index)=>{
             item.ondblclick=function(){
@@ -155,10 +158,48 @@
             })
             button.forEach((button,i)=>{
                 button.onclick=function(){button.parentNode.parentNode.remove()}
+                
             })
-            
-            
-      
+            add.onclick=function(){
+                let son=document.createElement("tr");
+                tbody.appendChild(son);
+                let son1=document.createElement("td");
+                son1.innerText=1;
+                son.appendChild(son1);
+                let son2=document.createElement("td");
+                son2.innerText=2;
+                son.appendChild(son2);
+                let son3=document.createElement("td");
+                son3.innerText=3;
+                son.appendChild(son3);
+                let son4=document.createElement("td");
+                son4.innerText=4;
+                son.appendChild(son4);
+                let son5=document.createElement("td");
+                son5.innerText=5;
+                son.appendChild(son5);
+                let son6=document.createElement("td");
+                son6.innerText=6;
+                son.appendChild(son6);
+                let son7=document.createElement("td");
+                son7.innerText=7;
+                son.appendChild(son7);
+                let son8=document.createElement("td");
+                son8.innerText=8;
+                son.appendChild(son8);
+                let son9=document.createElement("td");
+                son9.innerText=9;
+                son.appendChild(son9);
+                let son10=document.createElement("td");
+                son10.innerHTML="<button>删除</button> ";
+                son.appendChild(son10);
+                son10.onclick=function (event) {
+                if(event.target.innerText=="删除"){
+                    let father=son10.parentNode;
+                    father.parentNode.removeChild(father);
+                }
+            }
+        }
     </script>
 </body>
 </html>
